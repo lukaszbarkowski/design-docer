@@ -1,0 +1,35 @@
+.linkItem{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    padding:10px 15px 0 15px;
+    color: #30466b;
+    .col{
+        padding: 0!important;
+    }
+    .row{
+        justify-content: center;
+        margin:0!important;
+        max-width: 100px;
+        height: auto;
+        img{
+            max-width: 100%;
+            height: auto;
+            max-height: 100px;
+            background-color: white;
+            cursor: pointer;
+        }
+    }
+    a{
+        color: #30466b;
+    }
+    .deleteLinkItem{
+        width: 10px;
+        height: 10px;
+        background-color: crimson;
+        position: absolute;
+        display: block;
+        margin-left: 65px;
+        cursor: pointer;
+    }
+}

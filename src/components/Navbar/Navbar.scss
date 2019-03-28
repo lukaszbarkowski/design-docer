@@ -1,0 +1,41 @@
+.navbar{
+    background-color: #30466b;
+    color: white;
+    height: 50px;
+    border-bottom: 2px solid white;
+    margin-bottom: .5em;
+    z-index: 200;
+    .row{
+        height: 100%;
+        width: 100%;
+        .text-center{
+            align-self: center;
+            user-select: none;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    .click{
+        a{
+            transition: all .3s;
+            text-decoration: none;
+            color: white;
+        }
+        &:hover{
+            a{
+                text-shadow: 0 0 3px yellow, 0 0 5px yellow;
+            }
+        }
+        
+    }
+}
+@media (max-width:768px){
+    .navbar{
+        height: auto;
+        .row{
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import './scss/_animations.scss';
+
+body{
+  background-color: #F7FBFD;
+  overflow: hidden;
+  font-family: 'Lato', sans-serif!important;
+}
+::-webkit-scrollbar { 
+  display: none; 
+}

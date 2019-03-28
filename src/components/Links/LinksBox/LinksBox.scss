@@ -1,0 +1,28 @@
+.linksContainer{
+    height: auto;
+   // height: 175px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 20px;
+    background-color: rgba(48,70,107,.15);
+    animation: .5s fadeIn ease;
+    transition: all .2s;
+    &.toRemove{
+        opacity:0;
+    }
+    .row{
+        width: 100%;
+    }
+    .removeLinksBox{
+        width: 15px;
+        height: 15px;
+        display: block;
+        right: 0;
+        position: absolute;
+        background-color: crimson;
+        cursor: pointer
+    }
+}
+

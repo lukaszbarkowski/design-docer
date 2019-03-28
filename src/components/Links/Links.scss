@@ -1,0 +1,22 @@
+.panelRight{
+    height: 100vh;
+    margin-top: -0.5em;
+    .addBox{
+        background-color: #30466b;
+        color:white;
+        float: right;
+        transition: all .2s;
+    }
+    .btn{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@media (max-width:768px){
+    .panelRight{
+        .btn{
+            width: 100px;
+        }
+    }
+}
