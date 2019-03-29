@@ -8,6 +8,10 @@
     top: 0;
     background-color: #a7d3e9;
     z-index: 20;
+    transition: all .3s;
+    &.expand{
+        left: 0;
+    }
     ul{
         padding-inline-start: 0;
         li{
@@ -22,16 +26,7 @@
         margin: auto;
         padding: .5rem
     }
-    &.active{
-        animation: slideInRight .3s ease;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards
-    }
-    &.inactive{
-        animation: slideInRightBack .3s ease;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards
-    }
+
     form{
         width: 100%;
         button{

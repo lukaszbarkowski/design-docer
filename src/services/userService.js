@@ -9,7 +9,7 @@ export const userService ={
 }
 
 const config = {
-    apiUrl:'http://192.168.2.105:5000'
+    apiUrl:'http://localhost:5000'
 }
 function login(username,password) {
     const reqOptions = {
@@ -18,7 +18,7 @@ function login(username,password) {
         body:JSON.stringify({'user':username,'pass':password}),
         credentials:'same-origin'
     }
-    return fetch(`${config.apiUrl}/users/authenticate`,reqOptions)
+    return fetch(`${config.apiUrl}/auth/login`,reqOptions)
         .then(handleResponse)
         .then(user=>{
                 Cookies.set('user',user.id,{expires:1});

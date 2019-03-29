@@ -14,7 +14,8 @@ class Todo extends Component {
         super(props);
         this.state = {
             todos:[],
-            inputValue:''
+            inputValue:'',
+            backdrop:false
         }
 
     }
@@ -71,34 +72,16 @@ class Todo extends Component {
         })
     }
 
-    backdropChange = (id,parent) =>{
-        let bg = document.getElementById(id);
-        let main = document.getElementsByClassName(parent)[0];
-        if(this.state.backdrop){
-            if(bg){
-                bg.classList.add('fadeOut');
-                main.classList.remove('active');
-                main.classList.add('inactive');
-            }
-            setTimeout(()=>{
-                this.setState({
-                    backdrop:!this.state.backdrop
-                })
-            },500)
-        }
-        else{
-            main.classList.remove('inactive');
-            main.classList.add('active');
-            this.setState({
-                backdrop:!this.state.backdrop
-            })
-        }
+    backdropChange = () =>{
+        this.setState({
+            backdrop:!this.state.backdrop
+        })
     }
 
     render(){
         return (
             <Aux>
-                <div className="leftPanelTop inactive">
+                <div className={this.state.backdrop?'leftPanelTop expand':'leftPanelTop'}>
                     <div className="display-4 mb-3"><b>My todo list:</b></div>
                     <List 
                         listItems={this.state.todos}
@@ -119,9 +102,9 @@ class Todo extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className={this.state.backdrop?'slideInRight back':"slideInRight"} onClick={()=>{this.backdropChange('todoBd','leftPanelTop')}}></div>
+                    <div className='slideInRight' onClick={this.backdropChange}></div>
                 </div>
-                {this.state.backdrop?<Backdrop id="todoBd" animation="fadeIn" click={()=>{this.backdropChange('todoBd','leftPanelTop')}} />:null}
+                {this.state.backdrop?<Backdrop id="todoBd"click={this.backdropChange} />:null}
             </Aux>
         );
     }
