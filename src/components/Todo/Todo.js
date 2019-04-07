@@ -22,8 +22,8 @@ class Todo extends Component {
     componentDidMount = () => {
         dataManagement.getTodo()
             .then(res=>{
-                let temp =[];
-                res.data.forEach(e=>{
+                let temp =[];                
+                res.data.data.forEach(e=>{
                     temp = [...temp,e];
                 })
                 this.setState({
@@ -39,7 +39,7 @@ class Todo extends Component {
             dataManagement.getTodo()
             .then(res=>{
                 let temp =[];
-                res.data.forEach(e=>{
+                res.data.data.forEach(e=>{
                     temp = [...temp,e];
                 })
                 this.setState({
@@ -62,7 +62,7 @@ class Todo extends Component {
             dataManagement.getTodo()
             .then(res=>{
                 let temp =[];
-                res.data.forEach(e=>{
+                res.data.data.forEach(e=>{
                     temp = [...temp,e];
                 })
                 this.setState({
@@ -104,7 +104,7 @@ class Todo extends Component {
                     </div>
                     <div className='slideInRight' onClick={this.backdropChange}></div>
                 </div>
-                {this.state.backdrop?<Backdrop id="todoBd"click={this.backdropChange} />:null}
+                {this.state.backdrop?<Backdrop id="todoBd" click={this.backdropChange} />:null}
             </Aux>
         );
     }

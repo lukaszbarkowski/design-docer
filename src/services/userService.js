@@ -9,22 +9,22 @@ export const userService ={
 }
 
 const config = {
-    apiUrl:'http://localhost:5000'
+    apiUrl:process.env.REACT_APP_API
 }
 function login(username,password) {
-    const reqOptions = {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({'user':username,'pass':password}),
-        credentials:'same-origin'
-    }
-    return fetch(`${config.apiUrl}/auth/login`,reqOptions)
-        .then(handleResponse)
+    return axios({
+        method:'post',
+        url:`${config.apiUrl}/auth/login`,
+        data:{
+            user:username,
+            pass:password
+        }
+    })
+        .then(handleLoginResponse)
         .then(user=>{
-                Cookies.set('user',user.id,{expires:1});
-                return true;
-            }
-        )
+            Cookies.set('user',user,{expires:1});
+            return true;
+        })
         .catch(err=>{
             throw err;
         })
@@ -33,16 +33,15 @@ function login(username,password) {
 function register(username,password) {
     return axios({
         method:'post',
-        url:`${config.apiUrl}/users/register`,
+        url:`${config.apiUrl}/auth/register`,
         data:{
-            username:username,
-            password:password
+            user:username,
+            pass:password
         }
     })
-        .then(handleResponse)
-        .then(user=>{
-            Cookies.set('user',user.id,{expires:1});
-            return true;
+        .then(handleRegisterResponse)
+        .then(success=>{
+            return success;
         })
         .catch(err=>{
             throw err;
@@ -54,21 +53,20 @@ function logout() {
     Cookies.remove('user')
 }
 
-function handleResponse(res){
+function handleLoginResponse(res){
     if(res.status===200){
-        let id = !!res.data;
-        if(id)return res.data.id;
-        return res.text().then(
-            text=>{
-                const data=JSON.parse(text);
-                if(!res.ok){
-                    Promise.reject(text)
-                }
-                return data;
-            }
-        )
+        if(res.data.id)return res.data.id;
     }
     else{
         throw 'Authentication Error.';
+    }
+}
+
+function handleRegisterResponse(res){
+    if(res.status===200){
+        return true;
+    }
+    else{
+        throw 'Register error'
     }
 }

@@ -33,8 +33,8 @@ class Register extends Component{
     handleSubmit(e){
         e.preventDefault();
         userService.register(this.state.username,this.state.password)
-            .then(auth=>{
-                if(auth)this.props.history.push('/home');
+            .then(success=>{
+                if(success)this.props.history.push('/login');
             })
             .catch(error=>{
                 this.setState({

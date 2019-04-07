@@ -6,36 +6,36 @@ export const dataManagement ={
     postTodo
 }
 const config = {
-    apiUrl:'http://localhost:5000'
+    apiUrl:process.env.REACT_APP_API
 }
 
 function postTodo(id,value){
-    const reqOptions = {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-            userId:id,
-            value:value,
-            isDone:false
-        })
-    }
-    return fetch(`${config.apiUrl}/todos`,reqOptions)     
+  
+    return axios({
+        method:'post',
+        url:`${config.apiUrl}/todo/add`,
+        data:{
+            value:value
+        },
+        withCredentials:true
+    })
 }
 
 function removeTodo(id){
     return axios({
         method:'post',
-        url:`${config.apiUrl}/todos/remove`,
+        url:`${config.apiUrl}/todo/delete`,
         data:{
-            test:id
-        }
+            id:id
+        },
+        withCredentials:true
     })
 }
 
 function getTodo(){
     return axios({
         method:'get',
-        url:`${config.apiUrl}/todos`,
+        url:`${config.apiUrl}/todo/`,
         withCredentials:true
     })
 }

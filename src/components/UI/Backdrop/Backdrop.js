@@ -3,7 +3,7 @@ import './Backdrop.scss'
 
 const backdrop = (props) => {
     return (
-        <div id={props.id} className={"backdrop "+props.animation} onClick={props.click}></div>
+        <div id={props.id} className="backdrop" onClick={props.click}></div>
     );
 }
  
