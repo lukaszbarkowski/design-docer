@@ -33,7 +33,7 @@ function removeTodo(id){
 
 function getTodo(user){
     return axios({
-        method:'get',
+        method:'post',
         url:`${config.apiUrl}/todo/`,
         data:{
             user:user
