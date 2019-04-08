@@ -16,8 +16,7 @@ function postTodo(id,value){
         url:`${config.apiUrl}/todo/add`,
         data:{
             value:value
-        },
-        withCredentials:true
+        }
     })
 }
 
@@ -27,16 +26,14 @@ function removeTodo(id){
         url:`${config.apiUrl}/todo/delete`,
         data:{
             id:id
-        },
-        withCredentials:true
+        }
     })
 }
 
 function getTodo(){
     return axios({
         method:'get',
-        url:`${config.apiUrl}/todo/`,
-        withCredentials:true
+        url:`${config.apiUrl}/todo/`
     })
 }
 
