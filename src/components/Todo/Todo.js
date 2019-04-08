@@ -20,7 +20,7 @@ class Todo extends Component {
 
     }
     componentDidMount = () => {
-        dataManagement.getTodo()
+        dataManagement.getTodo(Cookies.get('user'))
             .then(res=>{
                 let temp =[];                
                 res.data.data.forEach(e=>{

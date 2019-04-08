@@ -9,13 +9,14 @@ const config = {
     apiUrl:process.env.REACT_APP_API
 }
 
-function postTodo(id,value){
+function postTodo(user,value){
   
     return axios({
         method:'post',
         url:`${config.apiUrl}/todo/add`,
         data:{
-            value:value
+            value:value,
+            user:user
         }
     })
 }
@@ -30,10 +31,13 @@ function removeTodo(id){
     })
 }
 
-function getTodo(){
+function getTodo(user){
     return axios({
         method:'get',
-        url:`${config.apiUrl}/todo/`
+        url:`${config.apiUrl}/todo/`,
+        data:{
+            user:user
+        }
     })
 }
 
