@@ -36,7 +36,7 @@ class Todo extends Component {
         e.preventDefault();
         dataManagement.postTodo(Cookies.get('user'),this.state.inputValue)
         .then(res=>{
-            dataManagement.getTodo()
+            dataManagement.getTodo(Cookies.get('user'))
             .then(res=>{
                 let temp =[];
                 res.data.data.forEach(e=>{
@@ -59,7 +59,7 @@ class Todo extends Component {
     removeTodo = (key) =>{
         dataManagement.removeTodo(Cookies.get('user'),key)
         .then(res=>{
-            dataManagement.getTodo()
+            dataManagement.getTodo(Cookies.get('user'))
             .then(res=>{
                 let temp =[];
                 res.data.data.forEach(e=>{
