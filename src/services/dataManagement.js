@@ -21,12 +21,13 @@ function postTodo(user,value){
     })
 }
 
-function removeTodo(id){
+function removeTodo(id,key){
     return axios({
         method:'post',
         url:`${config.apiUrl}/todo/delete`,
         data:{
-            id:id
+            id:id,
+            key:key
         }
     })
 }

@@ -57,7 +57,7 @@ class Todo extends Component {
     }
 
     removeTodo = (key) =>{
-        dataManagement.removeTodo(key)
+        dataManagement.removeTodo(Cookies.get('user'),key)
         .then(res=>{
             dataManagement.getTodo()
             .then(res=>{
