@@ -83,10 +83,10 @@ class Todo extends Component {
             <Aux>
                 <div className={this.state.backdrop?'leftPanelTop expand':'leftPanelTop'}>
                     <div className="display-4 mb-3"><b>My todo list:</b></div>
-                    <List 
-                        listItems={this.state.todos}
-                        empty={this.state.isEmpty}
-                        click={this.removeTodo}/>
+                        <List 
+                            listItems={this.state.todos}
+                            empty={this.state.isEmpty}
+                            click={this.removeTodo}/>
                     <div className="input-group mb-3">
                         <form onSubmit={this.addTodo}>
                             <input 

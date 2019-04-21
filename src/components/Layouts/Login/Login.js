@@ -34,7 +34,7 @@ class Login extends Component{
         e.preventDefault();
         userService.login(this.state.username,this.state.password)
             .then(auth=>{
-                if(auth)this.props.history.push('/home');
+                if(auth)this.props.history.push('/documents');
             })
             .catch(error=>{
                 this.setState({
@@ -46,7 +46,7 @@ class Login extends Component{
     }
 
     proceed(){
-        this.props.history.push('/home');
+        this.props.history.push('/documents');
     }
 
     logout(){

@@ -1,0 +1,22 @@
+.banner{
+    img{
+        width: 100%
+    }
+}
+.main{
+    background-color: #3c3c3c;
+    .firstSection{
+        .image{
+            img{
+                width: 100%;
+            }
+        }
+        .longText{
+            color: rgb(241, 241, 241)
+        }
+    }
+    .btn-primary{
+        border-radius: 0;
+        
+    }
+}

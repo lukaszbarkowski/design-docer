@@ -1,0 +1,27 @@
+.area{
+    min-height: 0;
+    padding: 1em;
+    transition: all .3s;
+    &:hover{
+        background-color: lightgray;
+    }
+    &.active{
+        .text{
+            &:after{
+                content: 'I';
+                font-weight: bold;
+                display: inline;
+                animation: 1s blink infinite
+            }
+        }
+    }
+}
+
+@keyframes blink{
+    from,to{
+        color: transparent;
+    }
+    50%{
+        color:black
+    }
+}

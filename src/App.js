@@ -9,9 +9,10 @@ import {
 
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Landing from './components/Layouts/Landing/Landing';
-import Home from './components/Layouts/Home/Home';
+import DocumentsList from './components/Layouts/DocumentsList/DocumentsList';
 import Login from './components/Layouts/Login/Login';
 import Register from './components/Layouts/Register/Register';
+import DocumentEdit from './components/Layouts/DocumentEdit/DocumentEdit'
 
 import * as ROUTES from './constants/routes/Routes';
 
@@ -21,8 +22,12 @@ class App extends Component {
         <Router>
           <Aux>
             <PrivateRoute
-              exact path={ROUTES.HOME}
-              component={Home}>
+              exact path={ROUTES.DOCUMENTS_LIST}
+              component={DocumentsList}>
+            </PrivateRoute>
+            <PrivateRoute
+              exact path={ROUTES.DOCUMENT_EDIT}
+              component={DocumentEdit}>
             </PrivateRoute>
             <Route
               exact path={ROUTES.LANDING}
