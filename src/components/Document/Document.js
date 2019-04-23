@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './Document.scss'
 import Area from './Area/Area'
 
@@ -7,12 +7,24 @@ import * as actionTypes from '../../store/actions';
 function Document(props){
     const [sections,setSections] = useState([])
 
-    const handleAddSection = () => {
+    useEffect(()=>{
+        setSections(props.data.sections)
+    },[props.data.sections])
+
+    const handleAddSection = () => {        
         let newSection = {
             id:sections.length,
             text:''
         }
-        setSections([...sections,newSection])
+        setSections([...sections,newSection]);
+    }
+
+    const handleDeleteSection = (id) => {
+        let currentState = sections;
+        currentState = currentState.filter(e=>{
+            return e.id!==id
+        });
+        setSections(currentState)
     }
 
     const handleSectionTextChange = (id,value) => {
@@ -20,26 +32,23 @@ function Document(props){
         arr[id].text = value;
         setSections(arr);
     }
-
-    const handleSave = () =>{
-        
-    }
-
+    
     return (
         <div className="container document">
-            {sections.map(section=>{
+            {(sections || []).map(section=>{
                 return(
                     <Area
                         key={section.id}
                         id={section.id} 
                         text={section.text}
                         changeActive={props.changeActiveSection} 
+                        deleteSection={handleDeleteSection}
                         current={props.activeSection} 
                         changeText={handleSectionTextChange}/>
                 )
             })}
             <div className="addNewArea" onClick={handleAddSection}>+</div>
-            <div className="forceSave" onClick={handleSave}>Save</div>
+            <div className="forceSave" onClick={()=>{props.saveData(sections)}}>Save</div>
         </div>
     )
 }

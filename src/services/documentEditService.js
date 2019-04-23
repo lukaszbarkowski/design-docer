@@ -11,7 +11,18 @@ const getDocumentDetails = (id) =>{
     })
 }
 
+const updateDocumentDetails = (id,data) => {
+    return axios({
+        method:'POST',
+        url:`${config.apiUrl}/documentDetails/${id}/update`,
+        data:{
+            data:data
+        }
+    })
+}
+
 
 export const documentEditService ={
-    getDocumentDetails
+    getDocumentDetails,
+    updateDocumentDetails
 }

@@ -2,13 +2,14 @@ import React from 'react';
 import './List.scss';
 import TransitionGroup from 'react-transition-group/CSSTransitionGroup';
 const list = (props) => {
-    const todoItems = props.listItems.map((todo)=>{
+    const todoItems = props.listItems.map((todo,index)=>{
         return( 
             <TransitionGroup transitionName="fade"
                 transitionAppear={true}
                 transitionEnterTimeout={500}
                 transitionAppearTimeout={500}
-                transitionLeaveTimeout={300}>
+                transitionLeaveTimeout={300}
+                key={index}>
 
                 <li className="listItem" key={todo.id} onClick={()=>props.click(todo.id)}><p>{todo.value}</p></li>
             </TransitionGroup>

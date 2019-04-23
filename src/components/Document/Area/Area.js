@@ -1,7 +1,8 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './Area.scss'
 function Area(props){
     const headerInput = React.createRef();
+    
     const handleChange = (e) => {
         const {value} = e.target;        
         props.changeText(props.id,value)
@@ -12,9 +13,17 @@ function Area(props){
         props.changeActive(props.id)
     }
 
+    const disableActive = () =>{
+        props.changeActive(null);
+    }
+
     return(
-        <div className={props.id===props.current?'area active':'area'} onClick={changeActive}
-            style={props.id===props.current?{background:'lightgray'}:null}>
+        <div 
+            className={props.id===props.current?'area active':'area'} 
+            onClick={changeActive}
+            style={props.id===props.current?{background:'lightgray'}:null}
+            onBlur={disableActive}
+            onFocusCapture={changeActive}>
             <textarea 
                 ref={headerInput}
                 name="header"
@@ -22,6 +31,9 @@ function Area(props){
                 onChange={handleChange}
                 placeholder="Type here"
                 type="text"/>
+            <div className="menuItem positive moveUp"></div>
+            <div className="menuItem positive moveDown"></div>
+            <div className="menuItem negative delete" onClick={()=>{props.deleteSection(props.id)}}></div>
             <div className="text">{props.text}</div>
         </div>
     )
