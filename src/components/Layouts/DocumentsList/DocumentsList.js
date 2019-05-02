@@ -15,6 +15,8 @@ function DocumentsList(props){
         const getDocuments = async () =>{            
             const documentsList = await documentsService.getDocuments(Cookies.get('user'));            
             setDocuments(documentsList.data);
+            console.log(documentsList);
+            
         };
         getDocuments()
     },[])
@@ -42,7 +44,7 @@ function DocumentsList(props){
                 {documents.map(doc=>{
                     return (
                         <Link to={`/document/${doc.id}`}>
-                            <div className="item">{doc.id} {doc.documentTitle}</div>
+                            <div className="item">{doc.id} {doc.document_title}</div>
                         </Link>
                     )
                 })}

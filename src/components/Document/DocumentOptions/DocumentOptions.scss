@@ -1,0 +1,23 @@
+.options{
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 250px;
+    transform: translate(-100%,0);
+    .config{
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+        position: relative;
+        &:after{
+            content: '\f013';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+        }
+    }
+}

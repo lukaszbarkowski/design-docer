@@ -1,12 +1,16 @@
 .area{
-    min-height: 75px;
-    padding: 1em;
+    padding: 0 1em;
     transition: all .3s;
     position: relative;
+    min-height: 25px;
     &:hover{
         background-color: lightgray;
+        .menuItem{
+            opacity: 1
+        }
     }
     .menuItem{
+        opacity: 0;
         width: 20px;
         height: 20px;
         position: absolute;
@@ -55,6 +59,7 @@
         }
     }
     &.active{
+        padding: 2em 1em;
         .text{
             &:after{
                 content: 'I';

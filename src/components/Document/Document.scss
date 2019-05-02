@@ -7,22 +7,35 @@
     textarea{
         position: absolute;
         z-index: -1;
-        
     }
     white-space: pre-line;
     .addNewArea{
         position: absolute;
         left: 50%;
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-        background-color:green;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size:2em;
+        width: 100px;
+        height: 30px;
+        border-radius: .5em;
+        background-color:gray;
+        transform: translate(-50%,0);
         font-weight: bold;
         color: white;
+        margin-top: .5em;
+        transition: all .5s;
+        cursor: pointer;
+        &:after{
+            content: '\f067';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            font-weight: 900;
+            font-family: 'Font Awesome 5 Free';
+        }
+        &:hover{
+            background-color: lightgray;
+            transform: translate(-50%,0) scale(1.05);
+        }
     }
     .forceSave{
         position: absolute;
