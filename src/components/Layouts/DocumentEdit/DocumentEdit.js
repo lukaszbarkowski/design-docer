@@ -14,7 +14,7 @@ function DocumentEdit(props){
     const [documentData, setDocumentData] = useState({id:null,title:'',data:{}});
     useEffect(()=>{
         const getDocumentDetails = async () =>{                                    
-            const documentsList = await documentEditService.getDocumentDetails(props.match.params.id);                    
+            const documentsList = await documentEditService.getDocumentDetails(props.match.params.id);                                
             const newState = {
                 id:documentsList.data.documentID,
                 title:documentsList.data.document_title,
@@ -48,12 +48,18 @@ function DocumentEdit(props){
         <Aux>
             <Navbar logout={userService.logout}/>
             <Todo />
-            <Document 
-                data={documentData.data} 
-                title={documentData.title} 
-                changeTitle={changeTitle}
-                saveData={saveDocumentData}/>
-            <Link to="/documents" className="goBack">Go back</Link>
+            <div className="container documentEdit">
+                <div className="row">
+                    <div className="col-12 col-md-7 offset-md-1">
+                        <Document 
+                            data={documentData.data} 
+                            title={documentData.title} 
+                            changeTitle={changeTitle}
+                            saveData={saveDocumentData}/>
+                    </div>
+                    <div className="col-md-3"></div>
+                </div>
+            </div>
         </Aux>
     )
 }

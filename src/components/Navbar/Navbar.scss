@@ -30,8 +30,9 @@
         
     }
 }
-@media (max-width:768px){
+@media (max-width:767px){
     .navbar{
+        position: sticky;
         height: auto;
         .row{
             margin-left: 0;

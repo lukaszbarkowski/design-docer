@@ -1,5 +1,9 @@
-.goBack{
-    position: absolute;
-    left: 16px;
-    top: 66px;
+
+.container{
+    &.documentEdit{
+        max-width: 1920px!important;
+        .row{
+            padding-top: 50px;
+        }
+    }
 }

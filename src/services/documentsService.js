@@ -19,7 +19,15 @@ const addNewDocument = (data) =>{
     })
 }
 
+const removeDocument = (id) => {
+    return axios({
+        method:'POST',
+        url:`${config.apiUrl}/documents/${id}/delete`
+    })
+}
+
 export const documentsService ={
     getDocuments,
-    addNewDocument
+    addNewDocument,
+    removeDocument
 }

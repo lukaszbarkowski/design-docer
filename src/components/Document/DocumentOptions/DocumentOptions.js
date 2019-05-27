@@ -14,7 +14,6 @@ const DocumentOptions = (props) => {
 
     return (
         <div className="options">
-        {props.title}
             <div className="config" onClick={()=>setActive(!active)}></div>
             {active?
                 ReactDOM.createPortal(

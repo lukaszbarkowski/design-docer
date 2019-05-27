@@ -1,13 +1,24 @@
+.ql-align-center{
+    text-align: center
+}
 .area{
     padding: 0 1em;
     transition: all .3s;
     position: relative;
     min-height: 25px;
     &:hover{
-        background-color: lightgray;
         .menuItem{
             opacity: 1
         }
+    }
+    p{
+        margin-bottom: 0!important;
+    }
+    blockquote{
+        margin-bottom: 0!important;
+    }
+    img{
+        max-width: 100%;
     }
     .menuItem{
         opacity: 0;
@@ -16,6 +27,7 @@
         position: absolute;
         top: 0;
         display: flex;
+        z-index: 100;
         filter: grayscale(.6);
         transition: all .3s;
         cursor: pointer;
@@ -24,6 +36,9 @@
         }
         &.positive{
             background-color: rgb(221, 184, 16);
+            &.clicked{
+                background-color: rgb(95, 223, 95);
+            }
 
         }
         &.negative{
@@ -38,12 +53,19 @@
             transform: translate(-50%,-50%);
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
+            pointer-events: none;
         }
     }
     .delete{
         right: 0;
         &:after{
             content: '\f00d';
+        }
+    }
+    .edit{
+        right: 20px;
+        &:after{
+            content: '\f044'
         }
     }
     .moveUp{

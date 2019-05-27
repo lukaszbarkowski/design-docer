@@ -7,9 +7,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case actionTypes.ACTIVE_SECTION:
-            return{
-                ...state,
-                activeSection:action.id
+            if(state.activeSection!==action.id){
+                return{
+                    ...state,
+                    activeSection:action.id
+                }
             }
     }
     return state;

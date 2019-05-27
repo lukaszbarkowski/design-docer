@@ -48,7 +48,7 @@ function Document(props){
     }
     
     return (
-        <div className="container document">
+        <div className="document">
             {(sections || []).map(section=>{
                 return(
                     <Area

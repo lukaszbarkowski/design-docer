@@ -10,8 +10,7 @@ const Modal = (props) => {
 
     return (
         <div className="modal">
-            {props.title}
-            Title:
+            <p>Title:</p>
             <input 
                 name="title"
                 value={title}
